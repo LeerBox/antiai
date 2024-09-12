@@ -43,4 +43,4 @@ runcmd:
   - apt-get upgrade -y
 
 # Final message
-final_message: "The server is ready and user LeerBox has been configured."
+final_message: "The server is ready, user LeerBox has been configured, and disk /dev/sdb has been set up."
