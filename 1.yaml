@@ -1,0 +1,46 @@
+#cloud-config
+
+# Set hostname
+hostname: ubuntu
+
+# Configure users
+users:
+  - name: LeerBox
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    shell: /bin/bash
+
+# Set locale and timezone
+locale: en_US.UTF-8
+timezone: Etc/UTC
+
+# Install packages
+packages:
+  - vim
+  - curl
+  - git
+  - htop
+
+# Configure SSH access
+ssh_pwauth: true  # Enable password authentication if needed
+
+# Network configuration
+network:
+  version: 2
+  ethernets:
+    eth0:
+      dhcp4: true
+
+# Write files
+write_files:
+  - path: /etc/motd
+    content: |
+      Welcome to your Ubuntu server!
+
+# Run commands
+runcmd:
+  - echo "Running custom setup commands..."
+  - apt-get update
+  - apt-get upgrade -y
+
+# Final message
+final_message: "The server is ready and user LeerBox has been configured."
